@@ -64,10 +64,14 @@ Please email Brandan Sayarath: brandan@brandan.tech for any questions.
 
 This program was created with:
 
+* HTML
+* CSS
 * Javascript
+* jQuery
 * Node Package Manager
-* BetterDoctor API
 * Webpack
+* BetterDoctor API
+* Git
 
 ## License
 
