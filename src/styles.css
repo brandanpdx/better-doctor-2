@@ -1,0 +1,84 @@
+body {
+  background-image: url(https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+}
+
+.showdocbyname {
+  display: none;
+}
+
+.showdocbysymptom {
+  display: none;
+}
+
+#symptomsearch {
+  margin-top: 20px;
+}
+
+input {
+  width: 100%
+}
+
+.container {
+  margin-top: 240px;
+  opacity: 0.9;
+  background-color: black;
+  padding: 30px;
+
+}
+
+li {
+  margin: 10px;
+}
+
+ol {
+  list-style-position: inside;
+}
+
+h1 {
+  font-size: 90px;
+  font-weight: bold;
+}
+
+label {
+  font-size: 30px;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+	background-color:#d9682b;
+  border-radius:36px;
+  text-align: center;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:11px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color:#eb8328;
+}
+
+button:active {
+  position:relative;
+	top:1px;
+}
+
+ 
+
+

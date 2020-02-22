@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <title>Doctor Search</title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="doctorsearch">
+      <h1>Doctor Search</h1>
+      <form id="doctor">
+        <label for="doctorsearch">Search doctors by name:</label><br>
+        <input id="userDocSearch" type="text" placeholder="Enter a doctor name..."><br>
+        <button type="submit">Find Doctors!</button>
+      </form>
+      <div class="showdocbyname">
+        <h2 class="doctorresult"></h2>
+        <ol id="showdocsname"></ol>
+      </div>
+    </div>
+
+    <div id="symptomsearch">
+      <h1>Symptom Search</h1>
+      <form id="symptom">
+        <label for="">Enter a keyword of symptoms you are having:</label><br>
+        <input id="symptomsearch" type="text" placeholder="Enter a symptom you are having..."><br>
+        <button type="submit">Search your symptom!</button>
+      </form>
+
+      <div class="showdocbysymptom">
+        <h2 class="symptomresult"></h2>
+        <ol id="showdocssymptom"></ol>
+      </div>
+    </div>
+    <div class="errors"></div>
+  </div>
+
+</body>
+
+</html>
