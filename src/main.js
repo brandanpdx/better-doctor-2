@@ -6,11 +6,11 @@ import { Doctors } from './better-doctor';
 import { Symptoms } from './better-doctor';
 
 // Doctor Search Function
-async function doctorsearch(input){
+async function doctorSearch(input){
 
   let doctor = new Doctors (input);
 
-  await doctor.getFetch(input);
+  await doctor.getDoctor(input);
 
   if (doctor.status === false) {
     $('.errors').append('Error! Status not found');
@@ -35,11 +35,11 @@ async function doctorsearch(input){
 }
 
 // Symptom Search Function
-async function symptomsearch(input){
+async function symptomSearch(input){
 
   let symptom = new Symptoms(input);
 
-  await symptom.getFetch(input);
+  await symptom.getSymptom(input);
 
   if (symptom.status === false) {
     $('.errors').append('Error! Status not found');
@@ -73,7 +73,7 @@ $(document).ready(function() {
     $('.showdocbyname').show();
     console.log(userDocSearch);
 
-    doctorsearch(userDocSearch);
+    doctorSearch(userDocSearch);
   });
 
   $('form#symptom').submit(function(event) {
@@ -84,7 +84,7 @@ $(document).ready(function() {
     $('.showdocbysymptom').show();
     console.log(userSymptomSearch);
 
-    symptomsearch(userSymptomSearch);
+    symptomSearch(userSymptomSearch);
   });
 
 });
