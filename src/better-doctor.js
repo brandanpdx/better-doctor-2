@@ -12,14 +12,13 @@ export class Doctors {
       if (doctor.ok && doctor.status == 200) {
         jsonifiedResponse = await doctor.json();
       } else {
-        jsonifiedResponse = false;
+        jsonifiedResponse = doctor;
       }
       this.jsonifiedResponse = jsonifiedResponse;
     } catch(error) {
       console.warn('Error. API not returning data.');
     }
   }
-
 
   async getSymptom(input) {
     try { 
@@ -29,7 +28,7 @@ export class Doctors {
       if (symptom.ok && symptom.status == 200) {
         jsonifiedResponse = await symptom.json();
       } else {
-        jsonifiedResponse = false;
+        jsonifiedResponse = symptom;
       }
       this.jsonifiedResponse = jsonifiedResponse;
     } catch(error) {
