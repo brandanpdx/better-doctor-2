@@ -50,10 +50,8 @@ function getDoctors(doctor) {
     }
 
     $('#showdocsname').append('<li>' + docname + '<br>' + docpractice + '<br>' + docaddress + '<br>' + docphone + '<br>' + 'Accepting new patients: ' + newpatients + '<br>' + 'Website: ' + website + '</li>');
-
   } 
 }
-
 
 
 // Symptom Search Function
@@ -70,19 +68,39 @@ async function symptomSearch(input){
   } 
 }
 
+
 function getSymptoms(symptom) {
   console.log(symptom);
-
   if (!symptom.data) {
     $('.errors').append(`Error! The API is returning the following status: ${symptom.status} ${symptom.statusText}.`);
-  } else if (symptom.data == 0) {
+  } else if (symptom.data == 0) {    
     $('#showdocssymptom').html("Sorry. We did not find any doctors that treat your symptoms.");
-  } else { 
-    for (var i = 0; i < symptom.data.length; i++)
-      $('#showdocssymptom').append(` <li> ${symptom.data[i].profile.first_name} ${symptom.data[i].profile.last_name}<br>${symptom.data[i].practices[0].name} <br> Address: ${symptom.data[i].practices[0].visit_address.street}, ${symptom.data[i].practices[0].visit_address.city}, ${symptom.data[i].practices[0].visit_address.state} ${symptom.data[i].practices[0].visit_address.zip} <br> Phone number: ${symptom.data[i].practices[0].phones[0].number} <br> Accepting new patients: ${symptom.data[i].practices[0].accepts_new_patients} </li>` );
-  }   
-}
+  }
 
+  for (var i = 0; i < symptom.data.length; i++) {
+    let symptomname = (`${symptom.data[i].profile.first_name} ${symptom.data[i].profile.last_name}`);
+
+    let symptompractice = (`${symptom.data[i].practices[0].name}`);
+
+    let symptomaddress = (`${symptom.data[i].practices[0].visit_address.street}, ${symptom.data[i].practices[0].visit_address.city}, ${symptom.data[i].practices[0].visit_address.state} ${symptom.data[i].practices[0].visit_address.zip}`);
+
+    let symptomphone = (`${symptom.data[i].practices[0].phones[0].number}`);
+
+    let newpatients = (`${symptom.data[i].practices[0].accepts_new_patients}`);
+    if (newpatients == 'true') {
+      newpatients = 'Yes';
+    } else {
+      newpatients == 'No';
+    }
+
+    let website = (`${symptom.data[i].practices[0].website}`);
+    if (website == 'undefined') {
+      website = "Sorry, this doctor does not have a website available at this time.";
+    }
+
+    $('#showdocssymptom').append('<li>' + symptomname + '<br>' + symptompractice + '<br>' + symptomaddress + '<br>' + symptomphone + '<br>' + 'Accepting new patients: ' + newpatients + '<br>' + 'Website: ' + website + '</li>');
+  } 
+}
 
 $(document).ready(function() {
   $('form#doctor').submit(function(event) {
