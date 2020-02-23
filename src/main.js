@@ -45,10 +45,6 @@ async function symptomSearch(input){
   } else {
     $('.errors').append('Error! Please input a symptom!');
   } 
-  
-  if (symptom.jsonifiedResponse === false) {
-    $('.errors').append('Error! Cannot make the API call!');
-  }
 }
 
 function getSymptoms(symptom) {
