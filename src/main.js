@@ -26,11 +26,34 @@ function getDoctors(doctor) {
     $('.errors').append(`Error! The API is returning the following status: ${doctor.status} ${doctor.statusText}.`);
   } else if (doctor.data == 0) {
     $('#showdocsname').html("We did not find any doctors matching your name.");
-  } else { 
-    for (var i = 0; i < doctor.data.length; i++)
-      $('#showdocsname').append(` <li> ${doctor.data[i].profile.first_name} ${doctor.data[i].profile.last_name}<br>${doctor.data[i].practices[0].name} <br> Address: ${doctor.data[i].practices[0].visit_address.street}, ${doctor.data[i].practices[0].visit_address.city}, ${doctor.data[i].practices[0].visit_address.state} ${doctor.data[i].practices[0].visit_address.zip} <br> Phone number: ${doctor.data[i].practices[0].phones[0].number} <br> Accepting new patients: ${doctor.data[i].practices[0].accepts_new_patients} </li>` );
+  } 
+
+  for (let i = 0; i < doctor.data.length; i++) {
+    let docname = (`${doctor.data[i].profile.first_name} ${doctor.data[i].profile.last_name}`);
+
+    let docpractice = (`${doctor.data[i].practices[0].name}`);
+
+    let docaddress = (`${doctor.data[i].practices[0].visit_address.street}, ${doctor.data[i].practices[0].visit_address.city}, ${doctor.data[i].practices[0].visit_address.state} ${doctor.data[i].practices[0].visit_address.zip}`);
+
+    let docphone = (`${doctor.data[i].practices[0].phones[0].number}`);
+
+    let newpatients = (`${doctor.data[i].practices[0].accepts_new_patients}`);
+    if (newpatients == 'true') {
+      newpatients = 'Yes';
+    } else {
+      newpatients == 'No';
+    }
+
+    let website = (`${doctor.data[i].practices[0].website}`);
+    if (website == 'undefined') {
+      website = "Sorry, this doctor does not have a website available at this time.";
+    }
+
+    $('#showdocsname').append('<li>' + docname + '<br>' + docpractice + '<br>' + docaddress + '<br>' + docphone + '<br>' + 'Accepting new patients: ' + newpatients + '<br>' + 'Website: ' + website + '</li>');
+
   } 
 }
+
 
 
 // Symptom Search Function
