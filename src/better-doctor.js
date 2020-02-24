@@ -16,7 +16,7 @@ export class Doctors {
       }
       this.jsonifiedResponse = jsonifiedResponse;
     } catch(error) {
-      console.warn('Error. API not returning data.');
+      return false;
     }
   }
 
@@ -32,7 +32,7 @@ export class Doctors {
       }
       this.jsonifiedResponse = jsonifiedResponse;
     } catch(error) {
-      console.warn('Error. API not returning data.');
+      return false;
     }
   }
 }

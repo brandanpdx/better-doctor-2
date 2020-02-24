@@ -20,8 +20,6 @@ async function doctorSearch(input){
 }
 
 function getDoctors(doctor) {
-  console.log(doctor);
-
   if (!doctor.data) {
     $('.errors').append(`Error! The API is returning the following status: ${doctor.status} ${doctor.statusText}.`);
   } else if (doctor.data == 0) {
@@ -70,7 +68,6 @@ async function symptomSearch(input){
 
 
 function getSymptoms(symptom) {
-  console.log(symptom);
   if (!symptom.data) {
     $('.errors').append(`Error! The API is returning the following status: ${symptom.status} ${symptom.statusText}.`);
   } else if (symptom.data == 0) {    
@@ -109,7 +106,6 @@ $(document).ready(function() {
     $('#showdocsname').empty();
     $('.doctorresult').html('Here is a list of doctors that match the name ' + userDocSearch + '.');
     $('.showdocbyname').show();
-    console.log(userDocSearch);
 
     doctorSearch(userDocSearch);
   });
@@ -120,7 +116,6 @@ $(document).ready(function() {
     $('#showdocssymptom').empty();
     $('.symptomresult').html('Here is a list of doctors that have experience with ' + userSymptomSearch + '.');
     $('.showdocbysymptom').show();
-    console.log(userSymptomSearch);
 
     symptomSearch(userSymptomSearch);
   });
